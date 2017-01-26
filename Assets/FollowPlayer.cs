@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
     public GameObject player;
+    public GameObject maxPosition;
     private Vector3 offset;
     public Vector3 min;
     public Vector3 max;
@@ -11,7 +12,7 @@ public class FollowPlayer : MonoBehaviour {
     void Start () {
         offset = transform.position - player.transform.position;
         min = transform.position;
-        max = new Vector3(18, 0, -10);
+        max = maxPosition.transform.position;
     }
 	
 	// Update is called once per frame

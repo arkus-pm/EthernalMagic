@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.A)) transform.Translate(Vector2.left * moveScale);
-        else if (Input.GetKey(KeyCode.D)) transform.Translate(Vector2.right * moveScale);
+        if (Input.GetKey(KeyCode.A)) { transform.Translate(Vector2.left * moveScale); transform.localScale = new Vector3(-1, 1, 1); }
+        else if (Input.GetKey(KeyCode.D)) { transform.Translate(Vector2.right * moveScale); ; transform.localScale = new Vector3(1, 1, 1);
+    }
         if (Input.GetKeyDown(KeyCode.W) && grounded) GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
         RaycastHit2D rayToGround = Physics2D.Raycast(transform.position, Vector2.down);
         if (rayToGround.collider != null)
